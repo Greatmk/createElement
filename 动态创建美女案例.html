@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<input type="button" value="按钮" id="btn">
+    	<div id="box"></div>
+
+    	<script>
+    		var datas = ["西施","貂蝉","凤姐","琳琳","芙蓉","妞妞","如花","似玉","日上","别闹"];
+
+    	   var btn = document.getElementById('btn');
+    	   var box = document.getElementById('box');
+
+    	   btn.onclick = function(){
+
+    	   		var ul = document.createElement('ul');
+    	   		ul.id = 'list';
+    	   		//console.log(ul);
+    	   		box.appendChild(ul);
+
+    	   		for(var i=0; i< datas.length; i++){
+    	   			var li = document.createElement('li');
+    	   			li.innerHTML = datas[i];
+    	   			ul.appendChild(li);
+
+    	   			//隔行变色
+    	   			if(i % 2 == 0){
+    	   				li.style.backgroundColor = 'purple';
+    	   			}else{
+    	   				li.style.backgroundColor = 'orange';
+    	   			}
+
+    	   			var oldColor;
+    	   			li.onmouseover = function(){
+    	   				oldColor = this.style.backgroundColor;
+    	   				this.style.backgroundColor = 'blue';
+    	   			}
+
+    	   			li.onmouseout = function(){
+    	   				this.style.backgroundColor = oldColor;
+    	   			}
+
+
+    	   		}
+
+
+
+
+
+
+    	   }
+
+
+
+
+
+    	</script>
+    </body>
+</html>

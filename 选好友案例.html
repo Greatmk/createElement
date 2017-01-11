@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select {
+            background-color: teal;
+            font-size: 20px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1>选好友：</h1>
+<!--multiple的作用是让select框能够多选-->
+<select id="src" multiple>
+    <option>西施</option>
+    <option>貂蝉</option>
+    <option>凤姐</option>
+    <option>芙蓉</option>
+    <option>冰冰</option>
+    <option>琳琳</option>
+    <option>诗诗</option>
+</select>
+<div class="btn-box">
+    <button id="btn1"> &gt;&gt; </button>
+    <button id="btn2"> &lt;&lt; </button>
+    <button id="btn3"> &gt;</button>
+    <button id="btn4"> &lt; </button>
+</div>
+<select id="tar" multiple>
+</select>
+<script>
+	var src = document.getElementById('src');
+	var tar = document.getElementById('tar');
+	var btn1 = document.getElementById('btn1');
+	var btn2 = document.getElementById('btn2');
+	var btn3 = document.getElementById('btn3');
+	var btn4 = document.getElementById('btn4');
+
+	btn1.onclick = function(){
+		var options = src.children;
+		for(var i = 0; i<options.length; i++){
+			var option = options[i];
+			tar.appendChild(option);
+			i--;
+		}	
+	}
+
+	btn2.onclick = function(){
+		var options = tar.children;
+		for(var i=0; i<options.length; i++){
+			var option = options[i];
+			src.appendChild(option);
+			i--;
+		}
+	}
+
+	btn3.onclick = function(){
+		var options = src.children;
+		for(var i=0; i<options.length; i++){
+			var option = options[i];
+			if(option.selected){
+				tar.appendChild(option);
+				i--;
+			}
+		}
+	}
+
+	btn4.onclick = function(){
+		var options = tar.children;
+		for(var i=0; i<options.length; i++){
+			var option = options[i];
+			if(option.selected){
+				src.appendChild(option);
+				i--;
+			}
+		}
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	div{
+        		width: 400px;
+        		height: 400px;
+        		background-color: pink;
+        	}
+        </style>
+    </head>
+    <body>
+    	<input type="button" value="创建" id="btn">
+    	<div id="box"></div>
+    	<script>
+    		var btn = document.getElementById('btn');
+    		var box = document.getElementById('box');
+    		btn.onclick = function(){
+    			var button = document.createElement('button');
+    			button.innerText = '点我';
+    			box.appendChild(button);
+    		}
+    	</script>
+    </body>
+</html>
